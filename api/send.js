@@ -1,30 +1,33 @@
-// api/send.js
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const axios = require("axios");
+const cors = require("cors");
+require("dotenv").config();
+
 const app = express();
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-app.post('/send', (req, res) => {
+// Обработка POST-запроса
+app.post("/send", async (req, res) => {
   const { name, phone, formType } = req.body;
-  console.log('Данные получены:', { name, phone, formType });
-  
-  // Здесь можно добавить логику бота (Telegram, Email и т.д.)
-  res.status(200).json({ status: 'success' });
+
+  try {
+    // Отправка сообщения в Telegram
+    await axios.post(
+      `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`,
+      {
+        chat_id: process.env.CHAT_ID,
+        text: `Новая заявка!\nИмя: ${name}\nТелефон: ${phone}\nТип: ${formType}`,
+      }
+    );
+
+    res.status(200).json({ status: "success" });
+  } catch (error) {
+    console.error("Ошибка Telegram API:", error.response?.data);
+    res.status(500).json({ error: "Не удалось отправить данные" });
+  }
 });
 
 module.exports = app;
-// Пример отправки в Telegram
-const axios = require('axios');
-
-app.post('/send', async (req, res) => {
-  const { name, phone, formType } = req.body;
-  
-  await axios.post(`https://api.telegram.org/bot${YOUR_BOT_TOKEN}/sendMessage`, {
-    chat_id: YOUR_CHAT_ID,
-    text: `Новая заявка!\nИмя: ${name}\nТелефон: ${phone}\nТип: ${formType}`
-  });
-
-  res.status(200).json({ status: 'success' });
-});
