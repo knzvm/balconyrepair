@@ -6,8 +6,10 @@ const app = express();
 // Middleware
 app.use(express.json());
 
+// Обработка POST-запроса
 app.post("/send", async (req, res) => {
   const { name, phone, formType } = req.body;
+  
   try {
     await axios.post(
       `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`,
@@ -23,5 +25,4 @@ app.post("/send", async (req, res) => {
   }
 });
 
-// Запуск сервера
-app.listen(3000, () => console.log("Сервер запущен на порту 3000"));
+module.exports = app;
