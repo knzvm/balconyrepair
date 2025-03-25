@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Конфигурация Telegram
-    const SERVER_URL = 'https://ваш-сервер.ru/send-to-telegram'; // Замените на ваш URL
+    const SERVER_URL = 'https://balconyrepair.vercel.app/send';
     const DEFAULT_MESSAGE = 'Нет сообщения';
+    let isSending = false; // Флаг для предотвращения повторных отправок
 
     // Мобильное меню
     const menuToggle = document.getElementById('menu-toggle');
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Калькулятор
+    // Калькулятор стоимости
     const areaSlider = document.getElementById('area-slider');
     const calculateBtn = document.getElementById('calculate-btn');
     const calculateFinalBtn = document.getElementById('calculate-final-btn');
@@ -68,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Портфолио
+    // Фильтрация портфолио
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
     filterButtons.forEach(button => {
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Отзывы
+    // Слайдер отзывов
     const reviewsSlider = document.getElementById('reviews-slider');
     const reviewPrev = document.getElementById('review-prev');
     const reviewNext = document.getElementById('review-next');
@@ -111,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Модалки
+    // Модальное окно
     const callButton = document.getElementById('call-button');
     const callModal = document.getElementById('call-modal');
     const modalClose = document.getElementById('modal-close');
@@ -135,20 +136,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Отправка форм
+    // Функция отправки данных
     async function sendToTelegram(formData) {
+        if (isSending) return false;
+        isSending = true;
+        
         try {
             const response = await fetch(SERVER_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                },
                 body: JSON.stringify(formData)
             });
             
-            return response.ok;
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            
+            return true;
         } catch (error) {
             console.error('Ошибка отправки:', error);
             return false;
+        } finally {
+            isSending = false;
         }
+    }
+
+    // Индикатор загрузки
+    function showLoader() {
+        const loader = document.createElement('div');
+        loader.className = 'loader';
+        document.body.appendChild(loader);
+    }
+
+    function hideLoader() {
+        const loader = document.querySelector('.loader');
+        if (loader) loader.remove();
     }
 
     // Форма заказа звонка
@@ -156,19 +180,24 @@ document.addEventListener('DOMContentLoaded', function() {
     if (callForm) {
         callForm.addEventListener('submit', async (event) => {
             event.preventDefault();
+            showLoader();
             
             const formData = {
-                name: document.getElementById('modal-name').value,
-                phone: document.getElementById('modal-phone').value,
+                name: document.getElementById('modal-name').value.trim(),
+                phone: document.getElementById('modal-phone').value.trim(),
                 message: 'Заказ звонка',
                 formType: 'callback'
             };
 
-            if (await sendToTelegram(formData)) {
+            const success = await sendToTelegram(formData);
+            hideLoader();
+            
+            if (success) {
                 alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
                 closeModal();
+                callForm.reset();
             } else {
-                alert('Ошибка при отправке формы!');
+                alert('Ошибка при отправке формы. Пожалуйста, попробуйте ещё раз.');
             }
         });
     }
@@ -178,32 +207,35 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactForm) {
         contactForm.addEventListener('submit', async (event) => {
             event.preventDefault();
+            showLoader();
             
             const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                message: document.getElementById('message').value || DEFAULT_MESSAGE,
+                name: document.getElementById('name').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                message: document.getElementById('message').value.trim() || DEFAULT_MESSAGE,
                 formType: 'contact'
             };
 
-            if (await sendToTelegram(formData)) {
+            const success = await sendToTelegram(formData);
+            hideLoader();
+            
+            if (success) {
                 alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
                 contactForm.reset();
             } else {
-                alert('Ошибка при отправке формы!');
+                alert('Ошибка при отправке формы. Пожалуйста, попробуйте ещё раз.');
             }
         });
     }
     
-    // Кнопка отзыва
+    // Дополнительные элементы
     const leaveReviewBtn = document.getElementById('leave-review-btn');
     if (leaveReviewBtn) {
         leaveReviewBtn.addEventListener('click', () => {
-            alert('Форма отзыва будет доступна после авторизации.');
+            alert('Отзывы взяты из сообщений клиентов в мессенджерах.');
         });
     }
     
-    // Прайс-лист
     const viewPriceListBtn = document.getElementById('view-price-list-btn');
     if (viewPriceListBtn) {
         viewPriceListBtn.addEventListener('click', () => {
@@ -216,7 +248,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Каталог проектов
     const viewMoreProjectsBtn = document.getElementById('view-more-projects-btn');
     if (viewMoreProjectsBtn) {
         viewMoreProjectsBtn.addEventListener('click', () => {
