@@ -8,7 +8,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const TELEGRAM_TOKEN = '7873217731:AAHZa7FLViCn-qyd4h2fFbXwy-TAac4rkp4';
-const CHAT_ID = '-4799585247';
+const CHAT_ID = '-1002512801230';
 
 app.post('/send-to-telegram', async (req, res) => {
     try {
