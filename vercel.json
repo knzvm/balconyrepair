@@ -1,5 +1,9 @@
 {
     "routes": [
-      { "src": "/send", "methods": ["POST"], "dest": "/api/send.js" }
+      {
+        "src": "/send",
+        "methods": ["POST"],
+        "dest": "/api/send.js"
+      }
     ]
   }
