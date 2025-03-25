@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Конфигурация Telegram
-    const SERVER_URL = 'https://balconyrepair.vercel.app/send';
+// В коде main.js убедитесь, что URL правильный:
+const SERVER_URL = 'https://balconyrepair.vercel.app/send-to-telegram'; 
     const DEFAULT_MESSAGE = 'Нет сообщения';
     let isSending = false; // Флаг для предотвращения повторных отправок
 
