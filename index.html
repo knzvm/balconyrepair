@@ -661,5 +661,80 @@
     </div>
 
     <script src="js/main.js"></script>
+    <!-- Вставьте это перед закрывающим тегом </body> -->
+<script src="https://unpkg.com/imask"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Конфигурация
+    const SERVER_URL = 'https://balconyrepair.vercel.app/send';
+    let isSending = false;
+
+    // Маски для телефона
+    const phoneInputs = document.querySelectorAll('input[type="tel"]');
+    phoneInputs.forEach(input => {
+        IMask(input, {
+            mask: '+{375} (00) 000-00-00',
+            lazy: false
+        });
+    });
+
+    // Общая функция отправки
+    async function sendFormData(formData) {
+        if (isSending) return false;
+        isSending = true;
+        
+        const loader = document.createElement('div');
+        loader.className = 'loader';
+        document.body.appendChild(loader);
+
+        try {
+            const response = await fetch(SERVER_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: formData.name.trim(),
+                    phone: formData.phone.replace(/\D/g, ''),
+                    formType: formData.formType
+                })
+            });
+
+            if (!response.ok) throw new Error('Ошибка сервера');
+            return true;
+        } catch (error) {
+            alert(`Ошибка: ${error.message}`);
+            return false;
+        } finally {
+            loader.remove();
+            isSending = false;
+        }
+    }
+
+    // Обработчик всех форм
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                name: form.querySelector('[name="name"]').value,
+                phone: form.querySelector('[name="phone"]').value,
+                formType: form.id === 'call-form' ? 'callback' : 'contact'
+            };
+
+            if (!formData.name || !formData.phone.match(/^\+375\d{9}$/)) {
+                return alert('Проверьте имя и телефон!');
+            }
+
+            if (await sendFormData(formData)) {
+                form.reset();
+                if (form.id === 'call-form') closeModal();
+                alert('Заявка отправлена!');
+            }
+        });
+    });
+
+    // Остальной код (модалки, калькулятор и т.д.)
+    // ... (ваш существующий код без изменений)
+});
+</script>
 </body>
 </html>

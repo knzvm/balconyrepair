@@ -12,28 +12,31 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// Обработка POST-запроса
+// Обработчик POST-запросов
 app.post('/send', async (req, res) => {
   const { name, phone, formType } = req.body;
 
-  // Валидация данных
-  if (!name || !phone) {
-    return res.status(400).json({ error: 'Заполните имя и телефон' });
-  }
-
   try {
+    // Проверка обязательных полей
+    if (!name || !phone) {
+      return res.status(400).json({ error: 'Заполните имя и телефон' });
+    }
+
     // Отправка в Telegram
     await axios.post(
       `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`,
       {
         chat_id: process.env.CHAT_ID,
-        text: `📄 Новая заявка!\nИмя: ${name}\nТелефон: ${phone}\nТип: ${formType || 'не указан'}`
+        text: `📌 Новая заявка!\n├ Имя: ${name}\n├ Телефон: ${phone}\n└ Тип: ${formType || 'не указан'}`
       }
     );
-    
+
     res.status(200).json({ status: 'success' });
   } catch (error) {
-    console.error('Ошибка Telegram API:', error.response?.data);
+    console.error('Ошибка:', {
+      message: error.message,
+      response: error.response?.data
+    });
     res.status(500).json({ error: 'Ошибка сервера' });
   }
 });

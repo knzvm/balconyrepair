@@ -249,6 +249,9 @@ const SERVER_URL = 'https://balconyrepair.vercel.app/send-to-telegram';
         });
     }
     
+
+
+    
     const viewMoreProjectsBtn = document.getElementById('view-more-projects-btn');
     if (viewMoreProjectsBtn) {
         viewMoreProjectsBtn.addEventListener('click', () => {
