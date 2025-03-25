@@ -1,38 +1,40 @@
-const express = require("express");
-const axios = require("axios");
-require("dotenv").config();
+const express = require('express');
+const axios = require('axios');
+const cors = require('cors');
+require('dotenv').config();
+
 const app = express();
 
-// Включите CORS
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-  next();
-});
-
+// Middleware
+app.use(cors({
+  origin: 'https://balconyrepair.vercel.app',
+  methods: ['POST']
+}));
 app.use(express.json());
 
-app.post("/send", async (req, res) => {
+// Обработка POST-запроса
+app.post('/send', async (req, res) => {
   const { name, phone, formType } = req.body;
 
-  try {
-    // Проверьте переменные окружения
-    if (!process.env.BOT_TOKEN || !process.env.CHAT_ID) {
-      throw new Error("Переменные окружения не заданы");
-    }
+  // Валидация данных
+  if (!name || !phone) {
+    return res.status(400).json({ error: 'Заполните имя и телефон' });
+  }
 
+  try {
     // Отправка в Telegram
     await axios.post(
       `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`,
       {
         chat_id: process.env.CHAT_ID,
-        text: `Новая заявка!\nИмя: ${name}\nТелефон: ${phone}\nТип: ${formType || "не указан"}`,
+        text: `📄 Новая заявка!\nИмя: ${name}\nТелефон: ${phone}\nТип: ${formType || 'не указан'}`
       }
     );
-    res.status(200).json({ status: "success" });
+    
+    res.status(200).json({ status: 'success' });
   } catch (error) {
-    console.error("Ошибка:", error.message);
-    res.status(500).json({ error: "Ошибка сервера" });
+    console.error('Ошибка Telegram API:', error.response?.data);
+    res.status(500).json({ error: 'Ошибка сервера' });
   }
 });
 
