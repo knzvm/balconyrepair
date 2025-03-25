@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ремонт Балконов - Профессиональный ремонт под ключ</title>
+    <!-- Основная иконка -->
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+<!-- Для Retina-экранов -->
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
+<!-- Для Apple-устройств -->
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+
+<!-- Для Windows Metro -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="img/mstile-144x144.png">
+    <meta name="description" content="Профессиональный ремонт балконов и лоджий. Остекление, утепление, отделка. Гарантия до 5 лет. Работаем более 10 лет на рынке.">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="header-overlay"></div>
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <!-- Пример в шапке рядом с логотипом -->
+<div class="custom-icon">
+    <img 
+        src="img/image.png" 
+        alt="Иконка Ремонт Балконов"
+        class="custom-icon-image"
+    >
+</div>
+                    <!--<svg class="logo-icon" viewBox="0 0 24 24">
+                        <image d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm2 0v14h14V5H5zm2 2h10v10H7V7zm2 2v6h6V9H9zm2 2h2v2h-2v-2z"></path>
+                    </svg>
+                    <h1 class="logo-text">Ремонт Балконов</h1>
+                    -->
+                </div>
+                
+                <div class="menu-desktop">
+                    <a href="#home" class="menu-link">Главная</a>
+                    <a href="#about" class="menu-link">О компании</a>
+                    <a href="#services" class="menu-link">Услуги</a>
+                    <a href="#reviews" class="menu-link">Отзывы</a>
+                    <a href="#contacts" class="menu-link">Контакты</a>
+                </div>
+                
+                <div class="menu-mobile">
+                    <button class="menu-toggle" id="menu-toggle">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                    <div class="mobile-dropdown" id="mobile-menu">
+                        <a href="#home" class="mobile-link">Главная</a>
+                        <a href="#about" class="mobile-link">О компании</a>
+                        <a href="#services" class="mobile-link">Услуги</a>
+                        <a href="#reviews" class="mobile-link">Отзывы</a>
+                        <a href="#contacts" class="mobile-link">Контакты</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="hero">
+                <div class="hero-content">
+                    <h2 class="hero-title">Профессиональный ремонт балконов под ключ</h2>
+                    <p class="hero-subtitle">Превратим ваш балкон в уютное и функциональное пространство</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-white" id="calculate-btn">
+                            <span class="material-symbols-outlined">calculate</span>
+                            Рассчитать стоимость
+                        </button>
+                        <button class="btn btn-primary" id="order-measure-btn">
+                            <span class="material-symbols-outlined">straighten</span>
+                            Заказать замер
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hero-image-wrapper">
+                    <img src="https://balkon4life.ru/wp-content/uploads/2019/08/kabinet-na-balkone_5d177175ab284-750x400.webp" alt="Отремонтированный балкон" class="hero-image">
+                    <div class="hero-badge">
+                        <p class="badge-title">10 лет на рынке</p>
+                        <p class="badge-subtitle">Более 1000 балконов</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-fade"></div>
+    </header>
+
+    <!-- Раздел с преимуществами -->
+    <section class="section section-advantages" id="advantages">
+        <div class="container">
+            <h2 class="section-title">Наши преимущества</h2>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon-wrapper">
+                        <span class="material-symbols-outlined advantage-icon">speed</span>
+                    </div>
+                    <h3 class="advantage-title">Скорость</h3>
+                    <p class="advantage-text">Выполняем работы в кратчайшие сроки без ущерба для качества. Средний срок ремонта — 3-5 дней.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon-wrapper">
+                        <span class="material-symbols-outlined advantage-icon">verified</span>
+                    </div>
+                    <h3 class="advantage-title">Гарантия</h3>
+                    <p class="advantage-text">Предоставляем официальную гарантию на все виды работ. До 5 лет на монтаж и материалы.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon-wrapper">
+                        <span class="material-symbols-outlined advantage-icon">engineering</span>
+                    </div>
+                    <h3 class="advantage-title">Опыт</h3>
+                    <p class="advantage-text">Наши мастера имеют более 10 лет опыта работы. Мы знаем все нюансы ремонта балконов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел с услугами -->
+    <section class="section section-services" id="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <p class="section-subtitle">Предлагаем комплексный подход к ремонту балконов — от проектирования до финальной отделки</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image-wrapper">
+                        <img src="https://sun9-59.userapi.com/impg/CVzwrRjJQIb9VOmlqo3yAb9raBxN-0liLaX2Zw/8TfEktYaA_Q.jpg?size=1000x584&quality=95&sign=4898f78818978e27ea3ead8c08e0e400&type=album" alt="Остекление балкона" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Остекление</h3>
+                        <p class="service-text">Алюминий, пластик, раздвижные системы различных производителей</p>
+                        <p class="service-price">от 350 руб/м²</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image-wrapper">
+                        <img src="https://sun9-7.userapi.com/impg/1PnaYSuPEpci5MztzA3NyXTGxXhiEykqpcG49Q/Pur-a9B3zqE.jpg?size=659x436&quality=95&sign=c3ceb5e76299fe7b3f454fed2e7944a8&type=album" alt="Утепление балкона" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Утепление</h3>
+                        <p class="service-text">Пенопласт, минеральная вата, монтаж теплого пола</p>
+                        <p class="service-price">от 200 руб/м²</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image-wrapper">
+                        <img src="https://sun9-11.userapi.com/impg/M9Mbwn9fJ3YNDK4X1x81zkRscoQYTZiwymLSJg/yzZVKV1HJl4.jpg?size=1080x1430&quality=95&sign=f0960ab15f7c8928dcc3205e66d74bc2&type=album" alt="Отделка балкона" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Отделка</h3>
+                        <p class="service-text">Вагонка, пластиковые панели, плитка, ламинат</p>
+                        <p class="service-price">от 180 руб/м²</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image-wrapper">
+                        <img src="https://sun9-69.userapi.com/impg/qLI357SsjkJm-Z_EMeiSCsiAKAbZxCmR1MqHVg/7gUgxwyj4YI.jpg?size=225x300&quality=95&sign=6b0a9eb806a5cb8d00776a114284961f&type=album" alt="Дополнительные услуги" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Доп. услуги</h3>
+                        <p class="service-text">Электропроводка, монтаж полок, шкафов и мебели</p>
+                        <p class="service-price">от 150 руб</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="services-cta">
+                <button class="btn btn-primary btn-lg" id="view-price-list-btn" download>
+                    <span class="material-symbols-outlined">assignment</span>
+                    Посмотреть полный прайс-лист
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел с калькулятором -->
+    <section class="section section-calculator">
+        <div class="calculator-shape-1"></div>
+        <div class="calculator-shape-2"></div>
+        
+        <div class="container">
+            <div class="calculator-grid">
+                <div class="calculator-content">
+                    <h2 class="calculator-title">Рассчитайте стоимость ремонта онлайн</h2>
+                    <p class="calculator-subtitle">Укажите параметры вашего балкона и получите предварительную стоимость ремонта прямо сейчас</p>
+                    
+                    <div class="calculator-form">
+                        <div class="form-group">
+                            <label class="form-label">Тип ремонта</label>
+                            <div class="form-grid-2">
+                                <div class="type-option" data-type="glazing">Остекление</div>
+                                <div class="type-option" data-type="insulation">Утепление</div>
+                                <div class="type-option" data-type="finishing">Отделка</div>
+                                <div class="type-option" data-type="complex">Комплексный</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Площадь балкона (м²)</label>
+                            <input type="range" min="1" max="15" value="5" class="range-slider" id="area-slider">
+                            <div class="range-values">
+                                <span>1</span>
+                                <span>5</span>
+                                <span>10</span>
+                                <span>15</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Тип остекления</label>
+                            <select class="form-select" id="glazing-type">
+                                <option value="aluminum">Алюминиевый профиль</option>
+                                <option value="pvc">ПВХ-профиль</option>
+                                <option value="sliding">Раздвижная система</option>
+                            </select>
+                        </div>
+                        
+                        <button class="btn btn-white btn-block" id="calculate-final-btn">
+                            <span class="material-symbols-outlined">calculate</span>
+                            Рассчитать стоимость
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="calculator-image-wrapper">
+                    <img src="https://sun9-23.userapi.com/impg/lUGjlD33P11CY3zMJFO3BlVq7d3Ta-VYW7JIRw/WznfvIjVQns.jpg?size=800x600&quality=95&sign=3ced31f7c552eddf0c16ee23ed7b0474&type=album" alt="Красивый отремонтированный балкон" class="calculator-image">
+                    <div class="calculator-badge">
+                        <p class="calculator-price">от 700 BYN</p>
+                        <p class="calculator-price-subtitle">Базовый ремонт</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О компании -->
+    <section class="section section-about" id="about">
+        <div class="container">
+            <h2 class="section-title">О компании</h2>
+            
+            <div class="about-grid">
+                <div class="about-image-wrapper">
+                    <img src="https://sun9-61.userapi.com/impg/jNsORMuYGqALX3ubzIVlW-jXmY96A4k7RJrkrw/oFoTmdEfd20.jpg?size=1333x2000&quality=95&sign=8f460e556e45c6c5ca0e63ff02b29b55&type=album" alt="Наша команда" class="about-image">
+                </div>
+                
+                <div class="about-content">
+                    <h3 class="about-subtitle">Ваш надежный партнер в создании комфорта</h3>
+                    <p class="about-text">Компания «Ремонт Балконов» работает на рынке ремонтных услуг более 10 лет. За это время мы выполнили более 1000 проектов и заслужили репутацию надежного исполнителя.</p>
+                    <p class="about-text">Наша миссия — превращать балконы и лоджии в функциональное, уютное пространство, которое станет продолжением вашей квартиры.</p>
+                    
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <span class="material-symbols-outlined feature-icon">app_registration</span>
+                            <div>
+                                <h4 class="feature-title">Лицензированные специалисты</h4>
+                                <p>Все работы выполняются мастерами с профильным образованием</p>
+                            </div>
+                        </div>
+                        
+                        <div class="about-feature">
+                            <span class="material-symbols-outlined feature-icon">inventory</span>
+                            <div>
+                                <h4 class="feature-title">Качественные материалы</h4>
+                                <p>Работаем только с проверенными поставщиками и материалами</p>
+                            </div>
+                        </div>
+                        
+                        <div class="about-feature">
+                            <span class="material-symbols-outlined feature-icon">published_with_changes</span>
+                            <div>
+                                <h4 class="feature-title">Прозрачные условия</h4>
+                                <p>Детальная смета, фиксированные цены, официальный договор</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Примеры работ -->
+    <section class="section section-portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Наши работы</h2>
+            <p class="section-subtitle">Примеры выполненных проектов</p>
+            
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">Все проекты</button>
+                <button class="filter-btn" data-filter="glazing">Остекление</button>
+                <button class="filter-btn" data-filter="insulation">Утепление</button>
+                <button class="filter-btn" data-filter="finishing">Отделка</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="glazing">
+                    <img src="https://sun9-78.userapi.com/impg/6NAVHXOzZNHCvKORf_AS7lMuTIObQDVcyGbY0w/2qi8kufUhfg.jpg?size=750x1000&quality=95&sign=ddd715d3577461d232a3383225127fa8&type=album" alt="Проект остекления" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Остекление лоджии</h3>
+                        <p class="portfolio-subtitle">Алюминиевый профиль, ул. Ленина</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="insulation">
+                    <img src="https://sun9-40.userapi.com/impg/TgOIasMaPywp1gV29Yn4EJU138Er7sL84oT5gg/q1A2mM_usrg.jpg?size=960x1440&quality=95&sign=69bcc7e09a41a852d45e1a22eab5c43f&type=album" alt="Проект утепления" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Утепление балкона</h3>
+                        <p class="portfolio-subtitle">Минеральная вата, мкр. Восточный</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="finishing">
+                    <img src="https://sun9-62.userapi.com/impg/GDhKKiUpPFWqN0LDkIiVcTrwMjiqx3Mvp32SSA/H1zzK-9ANiw.jpg?size=2560x1440&quality=95&sign=302dea1d5b416e2b17da6df587e07774&type=album" alt="Проект отделки" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Отделка лоджии</h3>
+                        <p class="portfolio-subtitle">Вагонка, ул. Строителей</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="glazing finishing">
+                    <img src="https://sun9-68.userapi.com/impg/7ztStU8vGCN5I2eCe7KtioHGHxAmKWQLMpSL_Q/FHEibRj178M.jpg?size=213x237&quality=95&sign=5c1308adb75e75c05042db7aee27f5c6&type=album" alt="Комплексный проект" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Комплексный ремонт</h3>
+                        <p class="portfolio-subtitle">Остекление и отделка, пр. Мира</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-cta">
+                <button class="btn btn-outline" id="view-more-projects-btn">
+                    <span class="material-symbols-outlined">grid_view</span>
+                    Показать больше проектов
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы клиентов -->
+    <section class="section section-reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title">Отзывы наших клиентов</h2>
+            
+            <div class="reviews-slider" id="reviews-slider">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">
+                            <img src="https://sun9-27.userapi.com/impg/wzwAnt__cz1hifXTlU2TvoxlW2-Rrmc8NZcDPw/5NLEl4zNaL4.jpg?size=2560x2560&quality=95&sign=3b393c91a66eb9328a9ddd127a1c379d&type=album" alt="Фото клиента" class="avatar-image">
+                        </div>
+                        <div class="reviewer-info">
+                            <h3 class="reviewer-name">Анна Смирнова</h3>
+                            <div class="review-rating">
+                                <span class="material-symbols-outlined star-filled">star</span>
+                                <span class="material-symbols-outlined star-filled">star</span>
+                                <span class="material-symbols-outlined star-filled">star</span>
+                                <span class="material-symbols-outlined star-filled">star</span>
+                                <span class="material-symbols-outlined star-filled">star</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">Очень довольна результатом! Балкон превратился в уютный кабинет. Работы выполнены качественно и в срок. Особенно понравилось утепление – теперь даже зимой там комфортно.</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">
+                            <img src="https://sun9-3.userapi.com/impg/tj_3H6v8N8s1GdErHa8XvaAc-msSHS7a3nfMhg/1MUKD6-NHS0.jpg?size=2000x1334&quality=95&sign=eab371bd0622de33033b83f6e1235d20&type=album" alt="Фото клиента" class="avatar-image">
+                        </div>
+                        <div class="reviewer-info">
+                            <h3 class="reviewer-name">Игорь Петров</h3>
+                            <div class="review-rating">
+                                <span class="material-symbols-outlined star-filled">star</span>
+                                <span class="material-symbols-outlined star-filled">star</span>
+                                <span class="material-symbols-outlined star-filled">star</span>
+                                <span class="material-symbols-outlined star-filled">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">Заказывал комплексный ремонт балкона. Мастера работали аккуратно, мусор вывозили сами. Единственное – немного задержали сроки, но результат того стоил. Рекомендую!</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">
+                            <img src="https://sun9-33.userapi.com/impg/6ZBCbDBCwZQ6-Nn4emmrd0TMFbUVndpxbRKziw/JG6AUMJFv9Y.jpg?size=2000x1334&quality=95&sign=492d087dc4bc0211dabb321d6c0625d2&type=album" alt="Фото клиента" class="avatar-image">
+                        </div>
+                        <div class="reviewer-info">
+                            <h3 class="reviewer-name">Елена Козлова</h3>
+                            <div class="review-rating">
+                                <span class="material-symbols-outlined star-filled">star</span>
+                                <span class="material-symbols-outlined star-filled">star</span>
+                                <span class="material-symbols-outlined star-filled">star</span>
+                                <span class="material-symbols-outlined star-filled">star</span>
+                                <span class="material-symbols-outlined star-filled">star</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">Отличная компания! Делали остекление и отделку. Менеджер помог выбрать оптимальные материалы под мой бюджет. Всё сделано аккуратно и красиво, теплоизоляция отличная.</p>
+                </div>
+            </div>
+            
+            <div class="reviews-controls">
+                <button class="review-arrow" id="review-prev">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <button class="review-arrow" id="review-next">
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+            </div>
+            
+            <div class="reviews-cta">
+                <button class="btn btn-primary" id="leave-review-btn">
+                    <span class="material-symbols-outlined">rate_review</span>
+                    Оставить отзыв
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="section section-contacts" id="contacts">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            
+            <div class="contacts-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="material-symbols-outlined contact-icon">location_on</span>
+                        <div>
+                            <h3 class="contact-title">Адрес офиса</h3>
+                            <p class="contact-text">г. Минск, ул. Строителей, д. 25, офис 312</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="material-symbols-outlined contact-icon">schedule</span>
+                        <div>
+                            <h3 class="contact-title">График работы</h3>
+                            <p class="contact-text">Пн-Пт: 9:00 - 19:00<br>Сб: 10:00 - 16:00<br>Вс: выходной</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="material-symbols-outlined contact-icon">call</span>
+                        <div>
+                            <h3 class="contact-title">Телефон</h3>
+                            <p class="contact-text">
+                                <a href="tel:+375291234567" class="contact-link">+375 (29) 123-45-67</a><br>
+                                <a href="tel:+375331234567" class="contact-link">+375 (33) 123-45-67</a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="material-symbols-outlined contact-icon">mail</span>
+                        <div>
+                            <h3 class="contact-title">Email</h3>
+                            <p class="contact-text">
+                                <a href="mailto:info@remont-balkonov.by" class="contact-link">info@remont-balkonov.by</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper">
+                    <h3 class="form-title">Оставьте заявку</h3>
+                    <p class="form-subtitle">Мы свяжемся с вами в ближайшее время</p>
+                    
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Ваше имя</label>
+                            <input type="text" class="form-input" id="name" placeholder="Иван Иванов" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Телефон</label>
+                            <input type="tel" class="form-input" id="phone" placeholder="+375 (XX) XXX-XX-XX" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="message">Сообщение</label>
+                            <textarea class="form-textarea" id="message" placeholder="Опишите ваш проект или задайте вопрос"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <span class="material-symbols-outlined">send</span>
+                            Отправить заявку
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="map-wrapper">
+                <h3 class="map-title">Мы на карте</h3>
+                <div class="map" id="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.1698791673644!2d27.5468193!3d53.9086542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTPCsDU0JzMxLjIiTiAyN8KwMzInNDguNiJF!5e0!3m2!1sru!2sby!4v1616580731276!5m2!1sru!2sby" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <svg class="footer-logo-icon" viewBox="0 0 24 24">
+                            <path d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm2 0v14h14V5H5zm2 2h10v10H7V7zm2 2v6h6V9H9zm2 2h2v2h-2v-2z"></path>
+                        </svg>
+                        <h2 class="footer-logo-text">Ремонт Балконов</h2>
+                    </div>
+                    <p class="footer-tagline">Профессиональный ремонт балконов под ключ</p>
+                    <p class="footer-copyright">© 2025 Ремонт Балконов. Все права защищены.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Навигация</h3>
+                    <ul class="footer-nav">
+                        <li><a href="#home" class="footer-link">Главная</a></li>
+                        <li><a href="#about" class="footer-link">О компании</a></li>
+                        <li><a href="#services" class="footer-link">Услуги</a></li>
+                        <li><a href="#portfolio" class="footer-link">Наши работы</a></li>
+                        <li><a href="#reviews" class="footer-link">Отзывы</a></li>
+                        <li><a href="#contacts" class="footer-link">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-services">
+                    <h3 class="footer-heading">Услуги</h3>
+                    <ul class="footer-nav">
+                        <li><a href="#" class="footer-link">Остекление балконов</a></li>
+                        <li><a href="#" class="footer-link">Утепление балконов</a></li>
+                        <li><a href="#" class="footer-link">Отделка балконов</a></li>
+                        <li><a href="#" class="footer-link">Вынос балконов</a></li>
+                        <li><a href="#" class="footer-link">Усиление балконов</a></li>
+                        <li><a href="#" class="footer-link">Монтаж крыши</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contacts">
+                    <h3 class="footer-heading">Контакты</h3>
+                    <ul class="footer-contact-list">
+                        <li class="footer-contact-item">
+                            <span class="material-symbols-outlined footer-contact-icon">location_on</span>
+                            г. Минск, ул. Строителей, д. 25
+                        </li>
+                        <li class="footer-contact-item">
+                            <span class="material-symbols-outlined footer-contact-icon">call</span>
+                            <a href="tel:+375291234567" class="footer-contact-link">+375 (29) 123-45-67</a>
+                        </li>
+                        <li class="footer-contact-item">
+                            <span class="material-symbols-outlined footer-contact-icon">mail</span>
+                            <a href="mailto:info@remont-balkonov.by" class="footer-contact-link">info@remont-balkonov.by</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="footer-social">
+                        <a href="#" class="social-icon" aria-label="Вконтакте">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm.51 15.88h-1.24c-.47 0-.62-.23-.96-.74-.74-.96-1.27-1.12-1.5-1.12-.31 0-.4.08-.4.47v1.05c0 .32-.08.48-.8.48-1.18 0-2.92-.64-4.12-2.19-1.5-1.97-1.9-3.47-1.9-3.76 0-.17.08-.33.47-.33h1.24c.35 0 .48.12.62.47.66 1.9 1.73 3.56 2.2 3.56.16 0 .24-.08.24-.51v-1.97c-.08-.96-.56-1.05-.56-1.4 0-.17.14-.33.37-.33h1.95c.26 0 .36.12.36.47v2.64c0 .28.12.4.2.4.16 0 .3-.12.59-.42.9-1.05 1.62-2.7 1.62-2.7.08-.16.24-.43.6-.43h1.24c.38 0 .47.2.38.47-.16.73-1.69 2.9-1.69 2.9-.12.2-.16.3 0 .53.12.15.5.47.77.72.53.64.91 1.17 1.02 1.55.13.34-.03.52-.4.52z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Инстаграм">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M12 9a3 3 0 100 6 3 3 0 000-6zm0-2a5 5 0 110 10 5 5 0 010-10zm6.5-.25a1.25 1.25 0 10-2.5 0 1.25 1.25 0 002.5 0zM12 4c-2.474 0-2.878.007-3.879.056-.996.05-1.7.209-2.28.445a4.61 4.61 0 00-1.677 1.092c-.5.5-.809 1.003-1.092 1.677-.236.581-.395 1.285-.445 2.28-.05 1.001-.056 1.405-.056 3.879s.007 2.878.056 3.879c.05.996.209 1.7.445 2.28.282.674.592 1.177 1.092 1.677.5.5 1.003.809 1.677 1.092.581.236 1.285.395 2.28.445 1.001.05 1.405.056 3.879.056s2.878-.007 3.879-.056c.996-.05 1.7-.209 2.28-.445.674-.282 1.177-.592 1.677-1.092.5-.5.809-1.003 1.092-1.677.236-.581.395-1.285.445-2.28.05-1.001.056-1.405.056-3.879s-.007-2.878-.056-3.879c-.05-.996-.209-1.7-.445-2.28a4.61 4.61 0 00-1.092-1.677c-.5-.5-1.003-.809-1.677-1.092-.581-.236-1.285-.395-2.28-.445C14.878 4.007 14.474 4 12 4zm0-2c2.717 0 3.056.01 4.123.06 1.064.05 1.79.217 2.427.465.66.255 1.22.598 1.772 1.152.554.554.897 1.112 1.152 1.772.248.637.415 1.363.465 2.427.05 1.067.06 1.407.06 4.123s-.01 3.056-.06 4.123c-.05 1.064-.217 1.79-.465 2.427-.255.66-.598 1.22-1.152 1.772-.554.554-1.112.897-1.772 1.152-.637.248-1.363.415-2.427.465-1.067.05-1.407.06-4.123.06s-3.056-.01-4.123-.06c-1.064-.05-1.79-.217-2.427-.465-.66-.255-1.22-.598-1.772-1.152-.554-.554-.897-1.112-1.152-1.772-.248-.637-.415-1.363-.465-2.427-.05-1.067-.06-1.407-.06-4.123s.01-3.056.06-4.123c.05-1.064.217-1.79.465-2.427.255-.66.598-1.22 1.152-1.772.554-.554 1.112-.897 1.772-1.152.637-.248 1.363-.415 2.427-.465C8.944 2.01 9.283 2 12 2z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Телеграм">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно заказа звонка -->
+    <div class="modal" id="call-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Заказать обратный звонок</h3>
+                <button class="modal-close" id="modal-close">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="modal-form" id="call-form">
+                    <div class="form-group">
+                        <label class="form-label" for="modal-name">Ваше имя</label>
+                        <input type="text" class="form-input" id="modal-name" placeholder="Иван Иванов" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="modal-phone">Телефон</label>
+                        <input type="tel" class="form-input" id="modal-phone" placeholder="+375 (XX) XXX-XX-XX" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="modal-time">Удобное время для звонка</label>
+                        <select class="form-select" id="modal-time">
+                            <option value="any">Любое время</option>
+                            <option value="morning">9:00 - 12:00</option>
+                            <option value="day">12:00 - 15:00</option>
+                            <option value="evening">15:00 - 19:00</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <span class="material-symbols-outlined">phone_callback</span>
+                        Заказать звонок
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Кнопка заказа звонка -->
+    <div class="call-button" id="call-button">
+        <span class="material-symbols-outlined call-icon">call</span>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
