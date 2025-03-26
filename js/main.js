@@ -57,7 +57,7 @@ const SERVER_URL = 'https://balconyrepair.vercel.app/send-to-telegram';
                 case 'Утепление': basePrice = 25; break;
                 case 'Отделка': basePrice = 30; break;
                 case 'Комплексный': basePrice = 350; break;
-                default: basePrice = 400;
+                default: basePrice = 0;
             }
 
             let totalPrice = basePrice * area;
@@ -141,28 +141,42 @@ const SERVER_URL = 'https://balconyrepair.vercel.app/send-to-telegram';
     async function sendToTelegram(formData) {
         if (isSending) return false;
         isSending = true;
-        
+      
         try {
-            const response = await fetch(SERVER_URL, {
-                method: 'POST',
-                headers: { 
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            });
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+          // Формируем текст сообщения
+          const text = `
+            Новая заявка:
+            Имя: ${formData.name}
+            Телефон: ${formData.phone}
+            Сообщение: ${formData.message}
+            Тип формы: ${formData.formType}
+          `;
+      
+          // Прямой запрос к Telegram API
+          const response = await fetch(
+            `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
+              body: new URLSearchParams({
+                chat_id: -1002512801230,
+                text: text,
+              }),
             }
-            
-            return true;
+          );
+      
+          if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+          return true;
+          
         } catch (error) {
-            console.error('Ошибка отправки:', error);
-            return false;
+          console.error("Ошибка отправки:", error);
+          return false;
         } finally {
-            isSending = false;
+          isSending = false;
         }
-    }
+      }
 
     // Индикатор загрузки
     function showLoader() {
