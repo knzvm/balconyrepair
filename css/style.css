@@ -1249,3 +1249,14 @@ button {
     0% { transform: translate(-50%, -50%) rotate(0deg); }
     100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
+
+.succes{
+    font-size: 14px;
+    color:#1d4ed8;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.disp{
+    display: none;
+}

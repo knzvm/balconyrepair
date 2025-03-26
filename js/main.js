@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Конфигурация Telegram
 // В коде main.js убедитесь, что URL правильный:
-const SERVER_URL = 'https://balconyrepair.vercel.app/send-to-telegram'; 
     const DEFAULT_MESSAGE = 'Нет сообщения';
     let isSending = false; // Флаг для предотвращения повторных отправок
 
@@ -20,7 +19,7 @@ const SERVER_URL = 'https://balconyrepair.vercel.app/send-to-telegram';
             }
         });
     }
-    
+     
     // Типы ремонта
     const typeOptions = document.querySelectorAll('.type-option');
     typeOptions.forEach(option => {
@@ -170,6 +169,7 @@ const SERVER_URL = 'https://balconyrepair.vercel.app/send-to-telegram';
           if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
           return true;
           
+
         } catch (error) {
           console.error("Ошибка отправки:", error);
           return false;
