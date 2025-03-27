@@ -1,10 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Конфигурация Telegram
-// В коде main.js убедитесь, что URL правильный:
-    const DEFAULT_MESSAGE = 'Нет сообщения';
-    let isSending = false; // Флаг для предотвращения повторных отправок
-
-    // Мобильное меню
+    /*// Мобильное меню
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     
@@ -112,137 +107,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Модальное окно
-    const callButton = document.getElementById('call-button');
-    const callModal = document.getElementById('call-modal');
-    const modalClose = document.getElementById('modal-close');
-    const orderMeasureBtn = document.getElementById('order-measure-btn');
-    
-    function openModal() {
-        if (callModal) callModal.classList.add('active');
-    }
-    
-    function closeModal() {
-        if (callModal) callModal.classList.remove('active');
-    }
-    
-    if (callButton) callButton.addEventListener('click', openModal);
-    if (orderMeasureBtn) orderMeasureBtn.addEventListener('click', openModal);
-    if (modalClose) modalClose.addEventListener('click', closeModal);
-    
-    if (callModal) {
-        callModal.addEventListener('click', (event) => {
-            if (event.target === callModal) closeModal();
-        });
-    }
-    
-    // Функция отправки данных
-    async function sendToTelegram(formData) {
-        if (isSending) return false;
-        isSending = true;
-      
-        try {
-          // Формируем текст сообщения
-          const text = `
-            Новая заявка:
-            Имя: ${formData.name}
-            Телефон: ${formData.phone}
-            Сообщение: ${formData.message}
-            Тип формы: ${formData.formType}
-          `;
-      
-          // Прямой запрос к Telegram API
-          const response = await fetch(
-            `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-              },
-              body: new URLSearchParams({
-                chat_id: -1002512801230,
-                text: text,
-              }),
-            }
-          );
-      
-          if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-          return true;
-          
-
-        } catch (error) {
-          console.error("Ошибка отправки:", error);
-          return false;
-        } finally {
-          isSending = false;
-        }
-      }
-
-    // Индикатор загрузки
-    function showLoader() {
-        const loader = document.createElement('div');
-        loader.className = 'loader';
-        document.body.appendChild(loader);
-    }
-
-    function hideLoader() {
-        const loader = document.querySelector('.loader');
-        if (loader) loader.remove();
-    }
-
-    // Форма заказа звонка
-    const callForm = document.getElementById('call-form');
-    if (callForm) {
-        callForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            showLoader();
-            
-            const formData = {
-                name: document.getElementById('modal-name').value.trim(),
-                phone: document.getElementById('modal-phone').value.trim(),
-                message: 'Заказ звонка',
-                formType: 'callback'
-            };
-
-            const success = await sendToTelegram(formData);
-            hideLoader();
-            
-            if (success) {
-                alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
-                closeModal();
-                callForm.reset();
-            } else {
-                alert('Ошибка при отправке формы. Пожалуйста, попробуйте ещё раз.');
-            }
-        });
-    }
-    
-    // Форма обратной связи
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            showLoader();
-            
-            const formData = {
-                name: document.getElementById('name').value.trim(),
-                phone: document.getElementById('phone').value.trim(),
-                message: document.getElementById('message').value.trim() || DEFAULT_MESSAGE,
-                formType: 'contact'
-            };
-
-            const success = await sendToTelegram(formData);
-            hideLoader();
-            
-            if (success) {
-                alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
-                contactForm.reset();
-            } else {
-                alert('Ошибка при отправке формы. Пожалуйста, попробуйте ещё раз.');
-            }
-        });
-    }
-    
     // Дополнительные элементы
     const leaveReviewBtn = document.getElementById('leave-review-btn');
     if (leaveReviewBtn) {
@@ -263,9 +127,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-
-
-    
     const viewMoreProjectsBtn = document.getElementById('view-more-projects-btn');
     if (viewMoreProjectsBtn) {
         viewMoreProjectsBtn.addEventListener('click', () => {
@@ -277,4 +138,4 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.removeChild(link);
         });
     }
-});
+});*/
