@@ -94,14 +94,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
             })
-            .then((response) => {
-                if (successElement) {
-                    successElement.classList.remove('disp');
-                    setTimeout(() => {
-                        successElement.classList.add('disp');
-                    }, 3000);
-                }
+            .then(() => {
+                showSuccessMessage(successElement, 'Спасибо! Мы свяжемся с вами в ближайшее время.');
                 form.reset();
+            })
+            .catch(error => {
+                console.error('Ошибка отправки:', error);
+                showSuccessMessage(successElement, 'Ошибка при отправке. Пожалуйста, попробуйте ещё раз.');
             })
             .finally(() => {
                 console.log('Процесс отправки завершен');
