@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    /*// Мобильное меню
+    // Мобильное меню
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     
@@ -107,6 +107,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Модальное окно (только UI логика, отправка в order.js)
+    const callButton = document.getElementById('call-button');
+    const callModal = document.getElementById('call-modal');
+    const modalClose = document.getElementById('modal-close');
+    const orderMeasureBtn = document.getElementById('order-measure-btn');
+    
+    function openModal() {
+        if (callModal) callModal.classList.add('active');
+    }
+    
+    function closeModal() {
+        if (callModal) callModal.classList.remove('active');
+    }
+    
+    if (callButton) callButton.addEventListener('click', openModal);
+    if (orderMeasureBtn) orderMeasureBtn.addEventListener('click', openModal);
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    
+    if (callModal) {
+        callModal.addEventListener('click', (event) => {
+            if (event.target === callModal) closeModal();
+        });
+    }
+    
     // Дополнительные элементы
     const leaveReviewBtn = document.getElementById('leave-review-btn');
     if (leaveReviewBtn) {
@@ -138,4 +162,4 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.removeChild(link);
         });
     }
-});*/
+});
