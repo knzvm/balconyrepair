@@ -962,7 +962,7 @@ button {
 /* Футер */
 .footer-wrapper {
     width: 100%;
-    background: var(--dark);
+    background: var(--primary-dark);
     padding: 4rem 0 2rem;
     margin-top: auto; /* Прижимает футер к низу */
 }
