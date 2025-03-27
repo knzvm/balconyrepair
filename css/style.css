@@ -24,6 +24,39 @@
     box-sizing: border-box;
 }
 
+/* Добавьте в самое начало CSS */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Занимает минимум всю высоту экрана */
+}
+
+/* Основное содержимое */
+.main-content {
+    flex: 1; /* Растягивается, занимая все доступное пространство */
+}
+
+/* Футер */
+.footer-wrapper {
+    width: 100%;
+    background: var(--dark);
+    padding: 4rem 0 2rem;
+    margin-top: auto; /* Прижимает футер к низу */
+}
+
+.footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+
 html {
     scroll-behavior: smooth;
 }
@@ -940,11 +973,9 @@ button {
 }
 
 /* Футер */
-/* Футер */
 .footer {
-    width: 100vw; /* Ширина во весь viewport */
-    margin-left: calc(-50vw + 50%); /* Центрирование */
-    margin-bottom: 0;
+    width: 100%;
+    margin-bottom: 0%;
     background: var(--dark);
     color: var(--primary-lighter);
     padding: 4rem 0 2rem;
@@ -954,9 +985,6 @@ button {
     display: grid;
     grid-template-columns: 1fr;
     gap: 3rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
 }
 
 .footer-logo {
