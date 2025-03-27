@@ -95,7 +95,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             })
             .then(() => {
-                showSuccessMessage(successElement, 'Спасибо! Мы свяжемся с вами в ближайшее время.');
+                //showSuccessMessage(successElement, 'Спасибо! Мы свяжемся с вами в ближайшее время.');
+                alert('Спасибо! Мы свяжемся с вами в указанное время.');
                 form.reset();
             })
             .catch(error => {
