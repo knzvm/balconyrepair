@@ -33,6 +33,7 @@ body {
     line-height: 1.5;
     color: var(--dark);
     background-color: var(--lighter-gray);
+    min-height: 100vh; /* Занимает минимум всю высоту экрана */
 }
 
 a {
@@ -947,6 +948,7 @@ button {
     background: var(--dark);
     color: var(--primary-lighter);
     padding: 4rem 0 2rem;
+    margin-top: auto; /* Прижимает футер к низу */
 }
 
 .footer-grid {
