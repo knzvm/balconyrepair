@@ -943,8 +943,8 @@ button {
 .footer {
     width: 100%;
     margin-bottom: 0%;
-    background: var(--lighter-gray);
-    color: var(--dark);
+    background: var(--dark);
+    color: var(--primary-lighter);
     padding: 4rem 0 2rem;
 }
 
