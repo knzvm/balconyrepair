@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Остальной существующий код order.js
     const form = document.getElementById('contact-form');
     const successElement = document.querySelector('.succes');
 
@@ -132,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 evening: '15:00 - 19:00'
             };
 
-            const messageText = `📞 Заказ обратного звонка!\nИмя: ${name.value}\nТелефон: ${phone.value}\nУдобное время: ${timeMapping[time.value]} \n\n#Звонки`;
+            const messageText = `📞 Заказ обратного звонка!\n\nИмя: ${name.value}\nТелефон: ${phone.value}\nУдобное время: ${timeMapping[time.value]} \n\n#Звонки`;
             
             axios.post(URL_API, new URLSearchParams({
                 chat_id: CHAT_ID,
