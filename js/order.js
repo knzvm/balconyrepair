@@ -13,14 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
     function openModal() {
         if (callModal) {
             callModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Блокируем скролл страницы
+            document.body.style.overflow = 'hidden';
         }
     }
 
     function closeModal() {
         if (callModal) {
             callModal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Восстанавливаем скролл
+            document.body.style.overflow = 'auto';
         }
     }
 
@@ -63,6 +63,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Проверка номера телефона
+    function isValidPhoneNumber(phone) {
+        // Проверяем формат: +375 (29|33|44|25) XXX-XX-XX
+        const phoneRegex = /^\+375\s\((29|33|44|25)\)\s\d{3}-\d{2}-\d{2}$/;
+        return phoneRegex.test(phone);
+    }
+
     const form = document.getElementById('contact-form');
     const successElement = document.querySelector('.succes');
 
@@ -81,6 +88,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
+            // Проверка номера телефона
+            if (!isValidPhoneNumber(phoneInput.value)) {
+                alert('Вы ввели некорректный номер телефона. Номер должен начинаться с +375 (29, 33, 44 или 25)');
+                return;
+            }
+
             // Формируем сообщение
             const messageText = `📌 Новая заявка!\n\n<b>Имя:</b> ${nameInput.value}\n<b>Телефон:</b> ${phoneInput.value}\n<b>Сообщение:</b> ${messageInput.value || 'Не указано'}\n\n#Заявки`;
 
@@ -95,16 +108,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             })
             .then(() => {
-                //showSuccessMessage(successElement, 'Спасибо! Мы свяжемся с вами в ближайшее время.');
-                alert('Спасибо! Мы свяжемся с вами в указанное время.');
+                alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
                 form.reset();
             })
             .catch(error => {
                 console.error('Ошибка отправки:', error);
                 showSuccessMessage(successElement, 'Ошибка при отправке. Пожалуйста, попробуйте ещё раз.');
-            })
-            .finally(() => {
-                console.log('Процесс отправки завершен');
             });
         });
     }
@@ -121,6 +130,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (!name || !phone || !time) {
                 console.error('Не найдены поля модальной формы');
+                return;
+            }
+
+            // Проверка номера телефона
+            if (!isValidPhoneNumber(phone.value)) {
+                alert('Вы ввели некорректный номер телефона. Номер должен начинаться с +375 (29, 33, 44 или 25)');
                 return;
             }
 
@@ -150,17 +165,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Маски для телефонов
+    // Маски для телефонов с валидацией операторов
     function initPhoneMask(selector) {
         const phoneField = document.getElementById(selector);
         if (phoneField) {
             phoneField.addEventListener('input', function(e) {
                 let value = e.target.value.replace(/\D/g, '');
+                
+                // Проверяем, чтобы номер начинался с 375
+                if (!value.startsWith('375') && value.length > 0) {
+                    e.target.value = '';
+                    return;
+                }
+                
                 if (value.startsWith('375')) value = '+' + value;
+                
+                // Проверяем оператора (29, 33, 44, 25)
+                if (value.length >= 6) {
+                    const operator = value.substring(4, 6);
+                    const validOperators = ['29', '33', '44', '25'];
+                    
+                    if (!validOperators.includes(operator)) {
+                        e.target.value = e.target.value.substring(0, e.target.value.length - 1);
+                        return;
+                    }
+                }
+                
                 const matches = value.match(/^(\+375)(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})$/);
                 
                 if (matches) {
                     e.target.value = `${matches[1]} (${matches[2]}) ${matches[3]}-${matches[4]}-${matches[5]}`.trim();
+                }
+            });
+            
+            // Добавляем проверку при потере фокуса
+            phoneField.addEventListener('blur', function(e) {
+                if (e.target.value && !isValidPhoneNumber(e.target.value)) {
+                    alert('Вы ввели некорректный номер телефона. Номер должен начинаться с +375 (29, 33, 44 или 25)');
+                    e.target.value = '';
+                    e.target.focus();
                 }
             });
         }
