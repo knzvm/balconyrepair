@@ -13,14 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
     function openModal() {
         if (callModal) {
             callModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Блокируем скролл страницы
+            document.body.style.overflow = 'hidden';
         }
     }
 
     function closeModal() {
         if (callModal) {
             callModal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Восстанавливаем скролл
+            document.body.style.overflow = 'auto';
         }
     }
 
@@ -63,6 +63,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Функция для показа уведомления
+    function showSuccessMessage(element, message) {
+        if (element) {
+            element.textContent = message || 'Спасибо! Мы свяжемся с вами в ближайшее время.';
+            element.classList.remove('disp');
+            setTimeout(() => {
+                element.classList.add('disp');
+            }, 3000);
+        } else {
+            alert(message || 'Спасибо! Мы свяжемся с вами в ближайшее время.');
+        }
+    }
+
+    // Основная форма
     const form = document.getElementById('contact-form');
     const successElement = document.querySelector('.succes');
 
@@ -70,21 +84,17 @@ document.addEventListener('DOMContentLoaded', function() {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Получаем элементы формы
             const nameInput = document.getElementById('name');
             const phoneInput = document.getElementById('phone');
             const messageInput = document.getElementById('message');
 
-            // Проверка существования элементов
             if (!nameInput || !phoneInput || !messageInput) {
                 console.error('Один из элементов формы не найден!');
                 return;
             }
 
-            // Формируем сообщение
             const messageText = `📌 Новая заявка!\n\n<b>Имя:</b> ${nameInput.value}\n<b>Телефон:</b> ${phoneInput.value}\n<b>Сообщение:</b> ${messageInput.value || 'Не указано'}\n\n#Заявки`;
 
-            // Отправка в Telegram
             axios.post(URL_API, new URLSearchParams({
                 chat_id: CHAT_ID,
                 parse_mode: 'HTML',
@@ -101,15 +111,14 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => {
                 console.error('Ошибка отправки:', error);
                 showSuccessMessage(successElement, 'Ошибка при отправке. Пожалуйста, попробуйте ещё раз.');
-            })
-            .finally(() => {
-                console.log('Процесс отправки завершен');
             });
         });
     }
 
-    // Обработка формы в модальном окне
+    // Форма в модальном окне
     const callForm = document.getElementById('call-form');
+    const modalSuccessElement = document.querySelector('.modal-succes') || successElement;
+
     if (callForm) {
         callForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -142,10 +151,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             })
             .then(() => {
-                alert('Спасибо! Мы свяжемся с вами в указанное время.');
+                showSuccessMessage(modalSuccessElement, 'Спасибо! Мы свяжемся с вами в указанное время.');
                 callForm.reset();
                 closeModal();
             })
+            .catch(error => {
+                console.error('Ошибка отправки:', error);
+                showSuccessMessage(modalSuccessElement, 'Ошибка при отправке. Пожалуйста, попробуйте ещё раз.');
+            });
         });
     }
 
