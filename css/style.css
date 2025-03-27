@@ -941,10 +941,11 @@ button {
 
 /* Футер */
 .footer {
-    width: 100%;
-    margin-bottom: 0%;
+    width: 100vw; /* Ширина во весь viewport */
+    margin-left: calc(-50vw + 50%); /* Центрирование */
+    margin-bottom: 0;
     background: var(--dark);
-    color: var(--dark);
+    color: var(--primary-lighter);
     padding: 4rem 0 2rem;
 }
 
@@ -952,6 +953,9 @@ button {
     display: grid;
     grid-template-columns: 1fr;
     gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .footer-logo {
